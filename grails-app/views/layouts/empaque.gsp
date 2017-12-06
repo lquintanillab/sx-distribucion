@@ -109,23 +109,36 @@
     <div class="container-fluid py-3">
         <div class="row">
             <ul class="nav  nav-fill">
+
                 <li class="nav-item">
-                    ©2017 Papel s.a.
+                    <g:link controller="surtido" action="pendientes" class="navbar-brand">
+                        <h5> Facturas</h5>
+                    </g:link>
                 </li>
                 <li class="nav-item">
-
+                    <g:link controller="surtido" action="documentosPendientes" class="navbar-brand">
+                        <h5>Pendientes</h5>
+                    </g:link>
                 </li>
                 <li class="nav-item">
-
+                    <g:link controller="surtido" action="enProceso" class="navbar-brand">
+                        <h5>En Proceso</h5>
+                    </g:link>
                 </li>
                 <li class="nav-item">
-
+                    <g:link controller="surtido" action="porEntregar" class="navbar-brand">
+                        <h5> Por Entregar</h5>
+                    </g:link>
                 </li>
                 <li class="nav-item">
-
+                    <g:link controller="surtido" action="porEntregarEnvio" class="navbar-brand">
+                        <h5> Por Entregar Envio</h5>
+                    </g:link>
                 </li>
                 <li class="nav-item">
-
+                    <g:link controller="corte" action="enProceso" class="navbar-brand">
+                        <h5> Empaque</h5>
+                    </g:link>
                 </li>
             </ul>
         </div>

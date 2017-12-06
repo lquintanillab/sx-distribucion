@@ -7,8 +7,9 @@
     <title>Surtido de pedidos</title>
     <asset:stylesheet src="datatables/datatables.css"/>
     <asset:javascript src="datatables/datatables.js"/>
-    <asset:stylesheet src="jquery-ui.css"/>
+    <asset:stylesheet src="jquery-ui-1.12.1/jquery-ui.css"/>
     <asset:javascript src="jquery-ui/autocomplete.js"/>
+
 </head>
 <body>
 <div >
@@ -16,10 +17,12 @@
     <div>
         <div class="col-md-12">
             <div class="well">
-                <h3 class="text-center">Surtidos registrados
-
-                </h3>
-
+                <h3 class="text-center">Surtidos registrados (${searchCommand.toPeriodo()})</h3>
+                <g:link
+                        action="dashboard"
+                        class="btn btn-secondary  btn-lg btn-block seleccion">
+               Administracion
+                </g:link>
             </div>
         </div>
     </div>
@@ -71,6 +74,8 @@
 
     <g:render template="empaqueUsoReport"/>
 
+
+
 </div><!-- end .container-->
 
 <div>
@@ -117,8 +122,8 @@
                 <g:each in="${surtidoInstanceList}" var="row">
                     <tr >
                         <td>${fieldValue(bean:row,field:"tipoDeVenta")}</td>
-                        <td>${fieldValue(bean:row,field:"forma")}</td>
-                        <td>${fieldValue(bean:row,field:"formaDeEntrega")}</td>
+                        <td>${fieldValue(bean:row,field:"entidad")}</td>
+                        <td>${fieldValue(bean:row,field:"entregaLocal")}</td>
 
                         <td>
                             <g:link action="analisis" id="${row.id}">
@@ -128,21 +133,21 @@
                             </g:link>
 
                         </td>
-                        <td><g:formatNumber number="${row.pedido}" format="####"/></td>
+                        <td><g:formatNumber number="${row.documento}" format="####"/></td>
 
-                        <td>${fieldValue(bean:row,field:"venta")}</td>
+                        <td>${fieldValue(bean:row,field:"folioFac")}</td>
 
-                        <td>${fieldValue(bean:row,field:"pedidoCreado")}</td>
-                        <td>${fieldValue(bean:row,field:"fechaPuesto")}</td>
-
-                        <td>${fieldValue(bean:row,field:"dateCreated")}</td>
-
-                        <!--<td><g:formatDate date="${row.fecha}" format="dd/MM"/></td>-->
+                        <td>${fieldValue(bean:row,field:"fecha")}</td>
                         <td>${fieldValue(bean:row,field:"fecha")}</td>
 
-                        <!--	<td><g:formatNumber number="${row.partidas.size()}" format="####"/></td>-->
+                        <td>${fieldValue(bean:row,field:"fecha")}</td>
 
-                        <td>${fieldValue(bean:row,field:"asignado")}</td>
+
+                        <td>${fieldValue(bean:row,field:"fecha")}</td>
+
+
+
+                        <td>${fieldValue(bean:row,field:"asignado.username")}</td>
 
                         <!--<td><g:formatDate date="${row.iniciado}" format="HH:MM"/></td>-->
                         <td>${fieldValue(bean:row,field:"iniciado")}</td>
@@ -153,26 +158,13 @@
                             <g:if test="${row.cortes}"><i class="fa fa-scissors"></i></g:if>
                         </td>
 
-                        <!--<td>
-                            <g:if test="${row.cortes}">"${row.partidas.get(0).corte?row.partidas.get(0).corte.asignado:''}"</g:if>
-                        </td>-->
 
                         <td>
-                            <g:if test="${row.cortes}">
-                                ${row.partidas.findAll{it.corte!=null}.first().corte.asignado}
+                            <g:if test="${row.prodsCorte}">
+                                ${row.cortes.first() .asignado.username}
                             </g:if>
                         </td>
 
-                        <!--<td><g:formatNumber number="${row.cortes}" format="####"/></td>-->
-
-                        <!--<td>
-                            <g:if test="${row.cortes}">
-                                <g:formatDate date="${row.corteInicio}" format="HH:MM (dd/MM)"/>
-                            </g:if>
-                            <g:else>
-                                0
-                            </g:else>
-                        </td> -->
                         <td>${fieldValue(bean:row,field:"corteInicio")}</td>
 
                         <!--<td>
@@ -210,9 +202,12 @@
 
 </div>
 
+<g:render template="searchSurtidoDialog"/>
 
 <script type="text/javascript">
 		$(function(){
+
+
 
 			$("table tbody").on('hover','tr',function(){
 				$(this).toggleClass("info");
@@ -246,6 +241,8 @@
 			    ).draw();
 			});
 		});
+
+
 
 
 	</script>

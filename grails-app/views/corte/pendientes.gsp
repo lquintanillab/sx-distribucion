@@ -47,7 +47,6 @@
                             <a href="" data-toggle="modal" class="btn btn-light btn-lg btn-block">
                                 <g:formatNumber number="${row.surtido.documento}" format="####"/>
                             </a>
-
                         </td>
                         <td>forma del surtido</td>
                         <td>${fieldValue(bean:row,field:"producto.clave")}</td>

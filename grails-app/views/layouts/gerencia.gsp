@@ -88,7 +88,7 @@
       <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
             <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
-                    <g:link controller="surtidoAnalisis" action="dashboard" class="nav-link active mb-2 mt-2" >Dashboard <span class="sr-only">(current)</span></g:link>
+                    <g:link controller="surtidoAnalisis" action="dashboard" class="nav-link bg-secondary text-white mb-2 mt-2" >Administracion </g:link>
                 </li>
                 <li class="nav-item">
                     <g:link controller="surtidoAnalisis" action="administracion" class="nav-link mb-2 bg-light text-dark" >Administracion</g:link>

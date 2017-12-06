@@ -175,11 +175,11 @@ class Surtido {
                     return 'DEPURADO'
                 }else if(revision){
                     return 'REVISADO'
-                }else /* if(iniciado && getCortes()==0 && entregado !=null){
+                }else if(iniciado && prodsCorte()==0 && entregado !=null){
                     return 'POR REVISAR'
-                }else if(iniciado && getCortes()>0 && asignacionCorte==null){
+                }else if(iniciado && prodsCorte()>0 && asignacionCorte==null){
                     return 'EN SURTIDO'
-                }else if(iniciado && getCortes()>0 && asignacionCorte!=null && corteInicio== null){
+                }else if(iniciado && prodsCorte()>0 && asignacionCorte!=null && corteInicio== null){
                     return 'POR CORTAR'
                 }else if(corteInicio!=null && corteFin==null && entregado== null){
                     return 'EN CORTE'
@@ -189,7 +189,7 @@ class Surtido {
                     return 'POR ENTREGAR'
                 }else if(corteInicio!=null && corteFin!=null && empacadoFinEstado && revision== null){
                     return 'POR REVISAR'
-                }*/
+                }
                 return 'EN SURTIDO'
             }
         }
@@ -214,6 +214,37 @@ class Surtido {
         }else{
             return asignado?'POR ENTREGAR':'PENDIENTE'
         }
+    }
+
+    def getEmpacadoTerminado(){
+        if(cortes){
+            def cortes=cortes.findAll()
+            def found=cortes.find{
+                it.corte.empacadoFin==null
+            }
+            if(found==null){
+                return true
+            }
+            return true
+        }
+        return true
+
+    }
+
+
+    def getEmpacadoFinEstado(){
+        if(prodsCorte()>0){
+            def cortes=cortes.findAll()
+            def found=cortes.find{
+                it.empacadoFin==null
+            }
+            if(found==null){
+                return true
+            }
+            return false
+        }
+        return false
+
     }
 
 
