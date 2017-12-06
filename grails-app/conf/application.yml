@@ -128,7 +128,7 @@ environments:
         dataSource:
            dbCreate: none
            url: jdbc:mysql://localhost/siipapx_dev?autoReconnect=false
-           password: sys
+           password: shoto
            properties:
              maxActive: 3
              maxIdle: 3

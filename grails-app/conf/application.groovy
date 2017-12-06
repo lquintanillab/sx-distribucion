@@ -8,6 +8,7 @@ grails.plugin.springsecurity.authority.className = 'sx.security.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
 	[pattern: '/console/**',   	 access: ['permitAll']],
+	[pattern: '**/vendors/**',   	 access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
 	[pattern: '/index',          access: ['permitAll']],
 	[pattern: '/index.gsp',      access: ['permitAll']],
