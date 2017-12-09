@@ -41,7 +41,7 @@
 
                     <div class="dropdown ">
                         <a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown" role="button" aria-haspopup="true"  aria-expanded="false">
-                            <i class="material-icons">content_cut</i> Cortadores
+                            <i class="material-icons">group</i> Cortadores
                         </a>
                         <ul class="dropdown-menu bg-light" role="menu">
                             <li>
@@ -63,6 +63,10 @@
                            placeholder="Filtrar" class="form-control" autofocus="on">
                 </div>
             </form>
+
+            <g:link controller="corte" action="calculadora" class="navbar-brand py-2 col-md-1 sticky-top">
+                <i class="material-icons">content_cut</i>
+            </g:link>
 
 
             <div class="dropdown ">

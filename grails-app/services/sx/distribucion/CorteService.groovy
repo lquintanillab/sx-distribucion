@@ -3,8 +3,11 @@ package sx.distribucion
 import grails.gorm.transactions.Transactional
 import sx.security.User
 
+
 @Transactional
 class CorteService {
+
+    def calcularCorte
 
     def registrarAsignacionDeCorteEnSurtido(Corte corte){
         def surtido=corte.surtido
@@ -40,5 +43,10 @@ class CorteService {
         surtido.corteFin=new Date()
         surtido.save(flush:true)
     }
+
+    def calcularCorte(def anchoP,def largoP,def  anchoC,def largoC){
+       calcularCorte. calcularCorte(anchoP,largoP,anchoC,largoC)
+
+}
 
 }

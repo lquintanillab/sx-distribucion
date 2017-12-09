@@ -688,6 +688,7 @@ class CorteController {
 
     }
 
+    @Secured(['permitAll'])
     def agregarEmpacadorMesa(Corte corte, User empacador){
 
         def fe=new Date().format('dd/MM/yyyy')
@@ -732,6 +733,11 @@ class CorteController {
             }
 
         }
+
+    }
+
+    @Secured(['permitAll'])
+    def calculadora(){
 
     }
 
